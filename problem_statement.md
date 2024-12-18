@@ -83,5 +83,8 @@ Error: cannot reduce capacity below currently occupied slots
 $Enter Command: update_capacity 10
 Upadated the capacity to 10
 
+$Enter Command: slotnum_for_reg_no US-01-AH-7467
+The slotnum for the US-01-AH-7467 is 4
+
 $Enter Command: exit
 Exiting Parking Lot System. Goodbye!
