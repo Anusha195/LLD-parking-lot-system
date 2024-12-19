@@ -1,33 +1,71 @@
-## Problem Statement: Automated Parking Lot System
-You own a parking lot that can hold up to 'n' cars at any given point in time. Each slot is given a number starting from 1 and increases sequentially with increasing distance from the entry point. You want to create an automated ticketing system to allow customers to use the parking lot without human intervention.
+***Automated Parking Lot System
 
-## When a car enters the parking lot:
+**Introduction
+The Automated Parking Lot System is a software application that manages a parking lot of configurable capacity. It facilitates the allocation of parking slots, calculates parking fees, provides real-time status updates, and supports dynamic capacity adjustments. The system is designed to operate without human intervention and ensures compliance with regulatory requirements
 
-1. A ticket is issued to the driver.
-2. The ticket documents the registration number (number plate) and color of the car.
-3. An available parking slot is allocated to the car, prioritized by the slot nearest to the entry point.
-4. It is assumed that customers always park their cars in the allocated slot.
-When a car exits the parking lot, the customer returns the ticket, and the system marks the slot as available. The system calculates the parking fee based on the duration the car was parked. The parking fee is set at ₹10 per hour.
+**Features
+1. Parking Lot Creation
+•	Command: create_parking_lot <capacity>
+•	Description: Initializes a parking lot with the specified number of slots.
+•	Output:
+o	Created a parking lot with <capacity> slots.
+2. Parking a Car
+•	Command: park <registration_number> <color>
+•	Description: Allocates the nearest available parking slot to the car and issues a parking ticket.
+•	Output:
+o	Allocated slot number: <slot_number>
+o	If full: Sorry, parking lot is full.
+3. Removing a Car
+•	Command: remove <slot_number>
+•	Description: Frees the specified parking slot and calculates the parking fee based on the duration.
+•	Output:
+o	Slot number <slot_number> is free. Parking fee: ₹<fee>
 
-## Government Regulations
-The system should provide the following features:
+4. Parking Lot Status
+•	Command: status
+•	Description: Displays the current status of the parking lot, including slot number, registration number, and car color.
 
-* Find registration numbers of all cars of a particular color.
-* Find the slot number in which a car with a given registration number is parked.
-* Find all slot numbers where cars of a particular color are parked.
-* Display total available slots in the parking lot.
-* Calculate and display total earnings from parking fees.
-* List all parked cars with their slot number, registration number, and color.
-* Update the parking lot capacity dynamically (e.g., increase or decrease slots as needed).
+•	Output               
+                          S.No  RegistrationNo  Color
+1  AH-01-SU-4534  White
+2  SH-02-AU-9245  White
+3  SU-67-AH-8589  Green
+5. Total Available Slots
+•	Command: total_available_slots
+•	Description: Displays the number of currently available slots.
+•	Output:
+o	Available slots: <count>
 
+6. Parking Fee Earnings
+•	Command: display_earnings
+•	Description: Displays the total earnings from parking fees.
+•	Output:
+o	Total earnings: ₹<amount>
 
-### Example: Interactive
-Assuming a parking lot with 6 slots, the following commands should be run in
-sequence by typing them in at a prompt and should produce output as described
-below the command. Note that `exit` terminates the process and returns control to
-the shell.
+7. Update Parking Lot Capacity
+•	Command: update_capacity <new_capacity>
+•	Description: Updates the parking lot capacity dynamically.
+•	Output:
+o	If successful: Updated capacity to <new_capacity>
+o	If unsuccessful: Cannot reduce capacity below currently occupied slots.
+8. Find Slot by Registration Number
+•	Command: slot_number_for_registration_number <registration_number>
+•	Description: Retrieves the slot number for the car with the specified registration number.
+•	Output:
+o	If found: The slotnum for the reg_no  is  <slotnum>
+o	If not found : The slotnum for the reg_no  is  null
 
+9. Exit the System
+•	Command: exit
+•	Description: Terminates the parking lot system gracefully.
+•	Output:
+o	Exiting Parking Lot System. Goodbye!
 
+10. Parking Fee Calculation
+•	Rate: ₹10 per hour.
+•	Logic: Fees are calculated based on the time the car was parked. Parking duration is rounded to the nearest hour.
+
+**Example Interaction
 Welcome to the Automated Parking Lot System!
 Type 'exit' to terminate the system.
 $Enter Command: create_parking_lot 5  
@@ -67,13 +105,6 @@ Sorry, parking lot is full
 $Total_available_slots
 Available numof slots are 0
 
-$Enter Command: list_all_cars
-Slot 1: AH-01-SU-4534
-Slot 2: SH-02-AU-9245
-Slot 3: AH-01-SU-4543
-Slot 4: US-01-AH-7467
-Slot 5: HA-01-US-2762
-
 $Enter Command: display_earnings
 Total earnings are 10
 
@@ -88,3 +119,28 @@ The slotnum for the US-01-AH-7467 is 4
 
 $Enter Command: exit
 Exiting Parking Lot System. Goodbye!
+
+**System Design
+Modules
+1.	Main Module:
+o	Handles user input and delegates commands to the system.
+2.	Parking Lot Service:
+o	Manages parking lot operations like parking, leaving, and updating capacity.
+3.	Command Processor:
+o	Processes user commands and invokes the appropriate service methods.
+4.	Car and Ticket Models:
+o	Represents the car and ticket entities used in the system.
+5.	Exception Handling:
+o	Handles errors such as invalid commands, full parking lot, or invalid slot numbers.
+
+**Extensibility
+This system is designed to be extensible. Future enhancements may include:
+1.	Dynamic Pricing Models: Add support for variable pricing rates based on time of day or vehicle type.
+2.	Multiple Parking Lots: Manage multiple parking lots from a single system.
+3.	Integration with Payment Gateways: Allow customers to pay parking fees online.
+4.	Reservation System: Enable users to reserve slots in advance.
+5.	Vehicle Type Management: Support for different types of vehicles like bikes, trucks, etc.
+
+**Conclusion
+The Automated Parking Lot System simplifies parking management by automating ticketing, tracking, and fee calculation. Its dynamic features and extensibility make it a robust solution for modern parking requirements.
+
