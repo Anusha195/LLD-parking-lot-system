@@ -8,18 +8,18 @@ The Automated Parking Lot System is a software application that manages a parkin
 •	Command: create_parking_lot <capacity>
 •	Description: Initializes a parking lot with the specified number of slots.
 •	Output:
-o	Created a parking lot with <capacity> slots.
+ Created a parking lot with <capacity> slots.
 2. Parking a Car
 •	Command: park <registration_number> <color>
 •	Description: Allocates the nearest available parking slot to the car and issues a parking ticket.
 •	Output:
-o	Allocated slot number: <slot_number>
-o	If full: Sorry, parking lot is full.
+	Allocated slot number: <slot_number>
+	If full: Sorry, parking lot is full.
 3. Removing a Car
 •	Command: remove <slot_number>
 •	Description: Frees the specified parking slot and calculates the parking fee based on the duration.
 •	Output:
-o	Slot number <slot_number> is free. Parking fee: ₹<fee>
+	Slot number <slot_number> is free. Parking fee: ₹<fee>
 
 4. Parking Lot Status
 •	Command: status
@@ -34,32 +34,32 @@ o	Slot number <slot_number> is free. Parking fee: ₹<fee>
 •	Command: total_available_slots
 •	Description: Displays the number of currently available slots.
 •	Output:
-o	Available slots: <count>
+	Available slots: <count>
 
 6. Parking Fee Earnings
 •	Command: display_earnings
 •	Description: Displays the total earnings from parking fees.
 •	Output:
-o	Total earnings: ₹<amount>
+	Total earnings: ₹<amount>
 
 7. Update Parking Lot Capacity
 •	Command: update_capacity <new_capacity>
 •	Description: Updates the parking lot capacity dynamically.
 •	Output:
-o	If successful: Updated capacity to <new_capacity>
-o	If unsuccessful: Cannot reduce capacity below currently occupied slots.
+	If successful: Updated capacity to <new_capacity>
+	If unsuccessful: Cannot reduce capacity below currently occupied slots.
 8. Find Slot by Registration Number
 •	Command: slot_number_for_registration_number <registration_number>
 •	Description: Retrieves the slot number for the car with the specified registration number.
 •	Output:
-o	If found: The slotnum for the reg_no  is  <slotnum>
-o	If not found : The slotnum for the reg_no  is  null
+	If found: The slotnum for the reg_no  is  <slotnum>
+	If not found : The slotnum for the reg_no  is  null
 
 9. Exit the System
 •	Command: exit
 •	Description: Terminates the parking lot system gracefully.
 •	Output:
-o	Exiting Parking Lot System. Goodbye!
+	Exiting Parking Lot System. Goodbye!
 
 10. Parking Fee Calculation
 •	Rate: ₹10 per hour.
@@ -123,15 +123,15 @@ Exiting Parking Lot System. Goodbye!
 **System Design
 Modules
 1.	Main Module:
-o	Handles user input and delegates commands to the system.
+	Handles user input and delegates commands to the system.
 2.	Parking Lot Service:
-o	Manages parking lot operations like parking, leaving, and updating capacity.
+	Manages parking lot operations like parking, leaving, and updating capacity.
 3.	Command Processor:
-o	Processes user commands and invokes the appropriate service methods.
+	Processes user commands and invokes the appropriate service methods.
 4.	Car and Ticket Models:
-o	Represents the car and ticket entities used in the system.
+	Represents the car and ticket entities used in the system.
 5.	Exception Handling:
-o	Handles errors such as invalid commands, full parking lot, or invalid slot numbers.
+	Handles errors such as invalid commands, full parking lot, or invalid slot numbers.
 
 **Extensibility
 This system is designed to be extensible. Future enhancements may include:
